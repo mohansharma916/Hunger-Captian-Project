@@ -107,6 +107,15 @@ main .food_type a:hover {
     margin-left: 20px;
 }
 
+
+.cart button.cartbutton{
+    background-color: transparent;
+    border:none;
+    color:white;
+}
+
+
+
 .review{
     margin-left: 20px;
 }
@@ -172,6 +181,12 @@ main .food_type a:hover {
     font-size: 10px;
     padding: 20px;
 }
+
+.subtotal p{
+    
+}
+
+
 
 /*********************************************
 **********************************************
@@ -325,6 +340,9 @@ main .food_type a:hover {
     display: flex;
     border-radius: 8px 8px;
 }
+li{
+    list-style: none;
+}
 
  .plus-button{
     width:40px;
@@ -413,5 +431,106 @@ span{
     font-weight: bold;
 
 }
+
+
+@media only screen and (max-width:450px) {
+    header .logo {
+        position: absolute;
+        left: 5%;
+    }
+
+    header .logo img{
+        width:45px;
+        
+    }
+    
+    header .slogan {
+        position: absolute;
+        top: 30%;
+        left: 5%;
+    }
+    .slogan h2{
+        color:white;
+        font-size:20px;
+    }
+    header .divider {
+        position: absolute;
+        bottom: -8px;
+    }
+    
+    header .divider img {
+        width: 100%;
+    }
+
+    main .mid_part h2{
+        font-size: 15px;
+        color:#A80E0E;
+        margin-bottom:2px;
+    }
+    .mid_part img{
+        width:60%;
+    }
+    .mid_part p{
+        font-size: 8px;
+    }
+
+    main .food_type{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0rem
+
+    }
+    main .food_type a {
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: 0;
+        color: #fff;
+        background-color: #A80E0E;
+        text-decoration: none;
+        font-size: 10px;
+    }
+    li {
+        list-style: none;
+    }
+    .items {
+        display :inline;
+        
+    }
+    .items .item .like img{
+        width:20px;
+    }
+    .items .item .like p{
+        font-size:15px;
+    }
+    .review{
+        display: flex;
+        gap:20px;
+        color:#1C77F4;
+    }
+    .cart button.cartbutton{
+        background-color: transparent;
+        border:none;
+        color:white;
+        
+
+    }
+
+    .popup .pop-up {
+        position: fixed;
+        background-color: white;
+        width: 95%;
+        height: 40rem;
+        left: 1rem;
+        top: 7rem;
+        border-radius: 4%;
+    }
+
+
+
+
+    
+} 
+
 
 

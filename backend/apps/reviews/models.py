@@ -15,7 +15,7 @@ class Review(models.Model):
         Item ,on_delete=models.CASCADE,db_index=True
     )
     name=models.CharField(
-        'Status',blank=False,default="draft",max_length=50,db_index=True,choices= STATUS
+        'name',blank=False,default="draft",max_length=50,db_index=True
     )
 
     body = models.TextField(

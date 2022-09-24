@@ -8,8 +8,12 @@ from .models import Review
 # Create your views here.
 
 class ReviewList(generics.ListAPIView):
-    queryset=Review.objects.order_by('-created_at').filter(name="active").all()
+    queryset=Review.objects.order_by('-created_at').all()
     serializer_class = ReviewSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['item_id']
+
+    
 
 
 class ReviewAdd(generics.CreateAPIView):

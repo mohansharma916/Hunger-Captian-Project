@@ -1,26 +1,21 @@
-import {
-  applyMiddleware,
+import { 
+  legacy_createStore as reduxCreateStore,
   combineReducers,
-  createStore as configureStore,
+  applyMiddleware,
 } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { logger } from 'redux-logger';
 import thunk from 'redux-thunk';
+import {ItemReducer} from '../items/reducers';
+import {CartReducer} from '../carts/reducers';
 
-import { PostsReducer } from '../posts/reducers';
-
-const rootReducer = combineReducers({
-  posts: PostsReducer,
-});
-
-export default function configureStores(preloadedState) {
-  const middlewares = [logger, thunk];
-  const middlewareEnhancer = applyMiddleware(...middlewares);
-
-  const enhancers = [middlewareEnhancer];
-  const composedEnhancers = composeWithDevTools(...enhancers);
-
-  const store = configureStore(rootReducer, preloadedState, composedEnhancers);
-
-  return store;
-}
+export default function createStore(history) {
+  return reduxCreateStore(
+      combineReducers({
+          items: ItemReducer,
+          carts: CartReducer,
+     }),
+     composeWithDevTools(
+      applyMiddleware(thunk)
+          )
+          )
+      }

@@ -6,7 +6,9 @@ STATUS=(
 )
 CATEGORIES=(
     ('hot', 'HOT'),
-    ('cold', 'COLD')
+    ('cold', 'COLD'),
+    ('bagel', 'BAGEL')
+
 )
 from cloudinary.models import CloudinaryField
 

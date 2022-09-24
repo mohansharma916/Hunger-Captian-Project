@@ -50,6 +50,10 @@ INSTALLED_APPS = [
     'apps.items',
     'apps.reviews'
 ]
+cloudinary.config( 
+cloud_name = "techisweb", 
+api_key = "159395554835593", 
+api_secret = "SaaW2NOD0fbA3eJByU7RW8q7FvM" )
 
 MIDDLEWARE = [
     # To allow CORS (Cross-origin resource sharing)
@@ -64,6 +68,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
+
+
+
 
 TEMPLATES = [
     {

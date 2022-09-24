@@ -33,7 +33,7 @@ api.interceptors.request.use(
 
 export default class API {
     getItems = async category => {
-        let url = '/item';
+        let url = '/items';
         if (category) {
             url += '?category=' + category;
         }
@@ -48,4 +48,44 @@ export default class API {
         return item;
     };
     
+
+
+
+
+//////////////
+///Reviews
+////////////
+
+getReviews=async(item_id)=>{
+    let url="/reviews?item_id="+ item_id;
+    const reviews=await api
+    .get(url)
+    .then((response)=>{
+        return response.data;
+    })
+    .catch((error)=>{
+        throw new Error(error);
+    });
+    return reviews;
+};
+
+writeReview=async (item_id,name,body,like_count)=>{    
+    const savedReview = await api
+    .post("/reviews/add/",{
+        "name": name,
+        "body": body,
+        "like_count": like_count,
+        "item": item_id
+    })
+    .then((response)=>{
+        return response.data;
+    })
+    .catch((error)=>{
+        throw new Error(error);
+    });
+    return savedReview;
+
+
+};
+
 }

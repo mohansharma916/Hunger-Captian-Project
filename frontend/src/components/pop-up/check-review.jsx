@@ -1,19 +1,32 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import blank_heart from "../../assets/img/blank_heart.png";
 import heart from "../../assets/img/heart.png";
 import thumbs_down from "../../assets/img/Icon awesome-thumbs-down.png";
 import cancel from "../../assets/img/close-circle.png";
+import API from "../../API";
+import Item from '../common/item';
 
 
 
-function Check_review({setCheckRev}) {
+
+
+
+function Check_review({setCheckRev, selectedItemId, nameRev}) {
+    const [reviews, setReviews] = useState('')
+    console.log(reviews)
+    const api = new API()
+    useEffect(() => {
+        api.getReviews(selectedItemId).then((reviews) => {
+          setReviews(reviews);
+        });
+      }, []);
   return (
     <>
     <div className="popup">
     <div className="pop-up">
         <div className="review-details">
             <div className="descriptions">
-                <h3 style={{marginBottom:"30px"}}>Reviews for "Chicken Submarine Burger"</h3>
+                <h3 style={{marginBottom:"30px"}}>Reviews for {nameRev}</h3>
                 <div className="rating">
                     <a href="#">
                         <div className="img_like">
